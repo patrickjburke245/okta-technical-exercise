@@ -52,10 +52,10 @@ Node.js, Express, Pug, 4x okta links, body-parser.
 I will reiterate the prompt given for this exercise and then illustrate how I fulfilled it. The prompt reads:
 _Create a custom application in the programming language of your choice and include the following:
 + An unsecured ("open") landing page
-_+ A protected page that any authenticated users can get to
+_ + A protected page that any authenticated users can get to
 + An admin page that provides an interface to add regular users to the admin group
-_+ Leverage Okta for these operations
-+ Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]
+_ + Leverage Okta for these operations
+_ + Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]
 
 The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000`, a mock news website landing page....
 ## 4. Next Steps
