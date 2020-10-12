@@ -46,10 +46,10 @@ npm start
 Login to `http://localhost:3000` and enjoy your login experience!
 
 ## 2. Technologies Used
-Node.js, Express, Pug, 4x okta links, body-parser.
+This app was built on the Node.js Javascript runtime and Express back-end framework. The Okta API docs and 4 supporting Okta repositories were instrumental in completing this project.
 
 ## 3. Technical Exercise Requirements
-I will reiterate the prompt given for this exercise and then illustrate how I fulfilled it. The prompt reads:
+The prompt reads:
 Create a custom application in the programming language of your choice and include the following:
 + An unsecured ("open") landing page
 + A protected page that any authenticated user can get to
@@ -58,9 +58,14 @@ Create a custom application in the programming language of your choice and inclu
 + Leverage Okta for these operations
 + Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]_
 
-The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000`, a mock news website landing page....
+The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000` which brings me to the landing page for a mock news website, 'The Daily Byte'. Users with regular permissions are directed to a different part of the site than admins. Admins are directed to a portal that allows them to view the users in their organization, delete users, and upgrade users to admins. The login page is hosted by Okta. The user functions are facilitated by calls to Okta's API platform.
+
 ## 4. Next Steps
-Implementing a front-end framework. Utilizing Pug better to deliver more aesthetic dynamic content. Improving on routing and code organization.
+To fulfill the requirements completely, I would need to implement commands to update and create users, similar to how the other forms are laid out on the admin portal.
+
+After base requirements are fulfilled, there are security issues to address with the application. Concealing the API token in the local .env file, giving clearer error messages when the results page loads, and sanitizing the user input on the admin portal are the first few that come to mind.
+
+This app could also use some better decoration and organization. Implementing a front-end framework like React or Angular could help modularize the content. The Pug templates can also be leveraged better to deliver more dynamic content. 
 
 ## 5. Links and Acknowledgments
 * [Node.js + Express Login Example](https://github.com/oktadeveloper/okta-nodejs-login-example#readme)
