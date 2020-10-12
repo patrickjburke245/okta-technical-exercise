@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  navbar-default 
+  h1 Welcome to the Admin Portal
+  h2 Options:
+  ol
+    li
+      a 
+      h3 List all users:
+      form(method='POST' action='/results' name = 'listusers')
+        label(for='listusers')
+        button(type='submit' name = "listusersbutton" placeholder="00u13we0z1nmnNSyN4x7" required) Retrieve users
+
+    li
+      a 
+      h3 Create a user:
+      form(method='POST' action='/results' name = 'createuser')
+        label(for='createuserfirstname')
+        input(id="createuserfirstname" type="text" name="createuserfirstname" placeholder="first name" required)
+        br
+        label(for='createuserlastname')
+        input(id="createuserlastname" type="text" name="createuserlastname" placeholder="last name" required)
+        br
+        label(for='email')   
+        input(id="email" type="email" name="createuseremail" placeholder="123@gmail.com" required)
+        br
+        label(for='password')
+        input(id="password" type="password" name="createuserpassword" placeholder="password" required)
+        br
+        button(type="reset" name="reset") Reset
+        br
+        button(type='submit' name = "createuserbutton") Create user    
+    li
+      a
+      h3 Delete a user:
+      form(method='POST' action='/results' name = 'deleteuser')
+        label(for='deleteuser')
+        input(id="deleteuser" type="text" name="deleteuser" placeholder="00u13we0z1nmnNSyN4x7" required)
+        br
+        button(type="submit" name="deleteuserbutton") Delete (this action cannot be undone)
+    li
+      a 
+      h3 Upgrade a user:
+      form(method='POST' action='/results' name = 'upgradeuserid')
+        label(for='upgradeeuserid')
+        input(id="upgradeuserid" type="text" name="upgradeuserid" placeholder="00u13we0z1nmnNSyN4x7" required)
+        br
+        button(type="submit" name="upgradeuserbutton") Make an admin
+  p Can't remember any of your colleagues' User IDs?
+  form(method='GET' action='/users')
+    button(type='submit') User ID List
+  form(method='POST' action='/logout')
+    button(type='submit') Logout

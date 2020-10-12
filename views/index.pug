@@ -1,0 +1,14 @@
+extends layout
+
+
+block content
+  h1= title
+  hr
+  p Hello, #{user.userinfo.name}!
+  p There's no tech news to share today.
+  img(src='https://media1.tenor.com/images/ebcd19e1a6e19c7d49a19fe9335b301d/tenor.gif?itemid=5281390')
+  p Try again tomorrow!
+  form(method='POST' action='/logout')
+    button(type='submit') Logout
+  hr
+    
