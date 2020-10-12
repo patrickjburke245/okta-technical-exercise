@@ -25,15 +25,6 @@ const getRequest = {
 
 const listUsersRequest = getRequest;
 
-// const putRequest = {
-//   method: 'PUT',
-//   headers: {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//     'Authorization': 'SSWS 006TkryedDC_lmFjNIsEQJKQ-C2gvkj_IZcJYsTGjx'
-//   }
-// };
-
 const deleteRequest = {
   method: 'DELETE',
   headers: {
@@ -133,20 +124,6 @@ function createUserFunc(first, last, inputEmail, inputPhone, inputPassword) {
     }
   };
   const url = `https://dev-224294.okta.com/api/v1/users/`
-  // const newUser = {
-  //   profile: {
-  //     firstName: first,
-  //     lastName: last,
-  //     email: inputEmail,
-  //     login: inputEmail,
-  //     mobilePhone:
-  //   },
-  //   credentials: {
-  //     password : {
-  //       value: inputPassword
-  //     }
-  //   }
-  // };
   client.http.http(url, request)
     .then(res => res.text())
     .then(text => {
@@ -158,13 +135,6 @@ function createUserFunc(first, last, inputEmail, inputPhone, inputPassword) {
       console.error(err);
       appender = " Not!"
     });
-  // client.createUser(newUser)
-  // .then(user => {
-  //   console.log('Created user', user);
-  // }).catch(err => {
-  //   create = create + " Not!";
-  //   console.error(err);
-  // });
 }
 
 let appender = "";
