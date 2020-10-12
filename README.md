@@ -21,7 +21,7 @@ Create a new OIDC app by navigating to **Applications** > **Add Application** > 
 * Login redirect URI: `http://localhost:3000/callback`
 * Logout redirect URI: `http://localhost:3000`
 
-Click **Done** to create your app. 
+Click **Done** to create your app.
 
 Create a `.env` file in your root directory and copy the client ID and secret into it. You can find the value for `<YOUR_ISSUER>` by navigating to **API** > **Authorization Servers**.
 
@@ -32,7 +32,7 @@ OIDC_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 BASE_URL=http://localhost:3000
 SESSION_SECRET=todo: make-this-more-secure
 ```
-   
+
 **NOTE**: Make sure to remove the `<...>` placeholders. Your issuer should look something like: `https://dev-123456.okta.com/oauth2/default`.
 
 ### Start the application
@@ -50,13 +50,13 @@ Node.js, Express, Pug, 4x okta links, body-parser.
 
 ## 3. Technical Exercise Requirements
 I will reiterate the prompt given for this exercise and then illustrate how I fulfilled it. The prompt reads:
-_Create a custom application in the programming language of your choice and include the following:
-+ An unsecured ("open") landing page
-+ A protected page that any authenticated user can get to
-+ A protected page that only members of an admin group can get to
-+ An admin page that provides an interface to add regular users to the admin group
-+ Leverage Okta for these operations
-+ Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]_
+_ Create a custom application in the programming language of your choice and include the following:
+_ + An unsecured ("open") landing page
+_ + A protected page that any authenticated user can get to
+_ + A protected page that only members of an admin group can get to
+_ + An admin page that provides an interface to add regular users to the admin group
+_+ Leverage Okta for these operations
+_+ Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]_
 
 The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000`, a mock news website landing page....
 ## 4. Next Steps
