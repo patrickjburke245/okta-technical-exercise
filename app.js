@@ -51,33 +51,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admins', adminsRouter);
 
-//API Client Wrapper
-let create = "User creation succeeded!"
-function createUserFunc(first, last, inputEmail, inputPassword) {
-  //const url = `https://dev-224294.okta.com/api/v1/users/`
-  const newUser = {
-    profile: {
-      firstName: first,
-      lastName: last,
-      email: inputEmail,
-      login: inputEmail,
-    },
-    credentials: {
-      password : {
-        value: inputPassword
-      }
-    }
-  };
-
-  client.createUser(newUser)
-  .then(user => {
-    console.log('Created user', user);
-  }).catch(err => {
-    create = create + " Not!";
-    console.error(err);
-  });
-}
-
 router.post("localhost:3000/results", async function(req, res){
 
   //List all users
@@ -91,18 +64,6 @@ router.post("localhost:3000/results", async function(req, res){
     res.send(create);
     console.log(req);
   }  else if (a.includes('deleteuserbutton')) {
-      // //client.getUser(req.body.deleteuser)
-      // // req.body.deleteuser.deactivate().then(() => console.log("User has been deactivated"))
-      // //   .then(() => user.delete()).then(() => console.log("User has been deleted"))
-      // //   .catch(err => {
-      // //     const e = err;
-      // //     console.error(err);
-      // //   });
-      // console.log(req.body.deleteuser);
-      // console.log('liftoff');
-      // await deleteUserFunc(req.body.deleteuser);
-      // console.log('touchdown');
-      // res.send("Delete Successful!" + booldecide);
       const user = client.getUser(req.body.deleteuser)
         .then(user => {
           console.log(user);
@@ -116,7 +77,6 @@ router.post("localhost:3000/results", async function(req, res){
         .then(() => user.delete())
         .then(() => console.log('User has been deleted'));
     }
-  //res.send('hello');
 });
 
 // catch 404 and forward to error handler
