@@ -1,7 +1,7 @@
 # okta-technical-exercise
 An application with an Okta-hosted login page and admin portal that leverages the Okta API to manage users in an organization.
 
-##Getting Started
+## 1. Getting Started
 
 To install this application, run the following commands (meant for Windows):
 ```
@@ -43,16 +43,26 @@ Start your application:
 npm start
 ```
 
-Log in to `http://localhost:3000` and enjoy your login experience!
+Login to `http://localhost:3000` and enjoy your login experience!
 
-##Exercise Requirements
-The exercise
+## 2. Technologies Used
+Node.js, Express, Pug, 4x okta links, body-parser.
 
-##Technologies Used
+## 3. Technical Exercise Requirements
+I will reiterate the prompt given for this exercise and then illustrate how I fulfilled it. The prompt reads:
+_Create a custom application in the programming language of your choice and include the following:
++ An unsecured ("open") landing page
+_+ A protected page that any authenticated users can get to
++ An admin page that provides an interface to add regular users to the admin group
+_+ Leverage Okta for these operations
++ Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]
 
+The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000`, a mock news website landing page....
+## 4. Next Steps
+Implementing a front-end framework. Utilizing Pug better to deliver more aesthetic dynamic content. Improving on routing and code organization.
 
-##Links
-..*[Node.js + Express Login Example](https://github.com/oktadeveloper/okta-nodejs-login-example#readme)
-..*[Okta Node.js SDK](https://github.com/okta/okta-sdk-nodejs#readme)
-..*[OktaDev Schematics](https://github.com/oktadeveloper/schematics#readme)
-..*[OIDC Middleware](https://github.com/okta/okta-oidc-js/tree/master/packages/oidc-middleware#readme)
+## 5. Links and Acknowledgments
+* [Node.js + Express Login Example](https://github.com/oktadeveloper/okta-nodejs-login-example#readme)
+* [Okta Node.js SDK](https://github.com/okta/okta-sdk-nodejs#readme)
+* [OktaDev Schematics](https://github.com/oktadeveloper/schematics#readme)
+* [OIDC Middleware](https://github.com/okta/okta-oidc-js/tree/master/packages/oidc-middleware#readme)
