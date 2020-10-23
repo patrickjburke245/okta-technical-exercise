@@ -6,7 +6,7 @@ An application with an Okta-hosted login page and admin portal that leverages th
 To install this application, run the following commands (meant for Windows):
 ```
 git clone https://github.com/patrickjburke245/okta-technical-exercise.git
-cd okta-nodejs-login-example
+cd okta-technical-exercise
 npm install
 ```
 This will create a copy of the project locally.
