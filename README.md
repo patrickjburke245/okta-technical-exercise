@@ -12,18 +12,17 @@ npm install
 This will create a copy of the project locally.
 ### Create a Free Okta Developer Account
 
-If you don't have one, [create an Okta Developer account](https://developer.okta.com/signup/). After you've completed the setup process, log in to your account.
+If you don't have one, [create an Okta Developer account](https://developer.okta.com/signup/). After you've completed the setup process and activated your account, log in to your account.
 
-Create a new OIDC app by navigating to **Applications** > **Add Application** > select **Web**, and click **Next**. Fill in the following values:
+Create a new OIDC app by changing from Developer Console to Classic UI. Navigate to **Applications** > **Add Application** > **Create New App** > select **Web** and **OpenID Connect**, and click **Next**. Fill in the following values:
 
 * Name: `Node.js Login`
-* Base URI: `http://localhost:3000`
 * Login redirect URI: `http://localhost:3000/callback`
 * Logout redirect URI: `http://localhost:3000`
 
 Click **Done** to create your app.
 
-Create a `.env` file in your root directory and copy the client ID and secret into it. You can find the value for `<YOUR_ISSUER>` by navigating to **API** > **Authorization Servers**.
+Create a `.env` file in your root directory and copy the client ID and secret into it. You can find the value for `<YOUR_ISSUER>` by navigating to **Security** > **API** > **Authorization Servers**.
 
 ```
 OIDC_ISSUER=<YOUR_ISSUER>
@@ -34,6 +33,16 @@ SESSION_SECRET=todo: make-this-more-secure
 ```
 
 **NOTE**: Make sure to remove the `<...>` placeholders. Your issuer should look something like: `https://dev-123456.okta.com/oauth2/default`.
+
+So in your .env file, this will end up looking something like:
+
+```
+OIDC_ISSUER=https://dev-123456.okta.com/oauth2/default
+OIDC_CLIENT_ID=0oa578hjtxP8gt89F3x6
+OIDC_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
+BASE_URL=http://localhost:3000
+SESSION_SECRET=todo: make-this-more-secure
+```
 
 ### Start the application
 
