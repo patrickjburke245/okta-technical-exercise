@@ -5,7 +5,6 @@ const urltemplate = require('url-template');
 require('dotenv').config()
 
 //Variables that don't require userId to be declared
-const applicationId = process.env.APPLICATION_ID;
 const token = process.env.API_TOKEN;
 const orgUrl = process.env.OKTA_CLIENT_ORGURL;
 
