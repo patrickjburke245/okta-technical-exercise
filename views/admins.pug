@@ -7,14 +7,21 @@ block content
   ol
     li
       a 
-      h3 List all users:
+      h3 List all users (Name and ID):
       form(method='POST' action='/results' name = 'listusers')
         label(for='listusers')
         button(type='submit' name = "listusersbutton" placeholder="00u13we0z1nmnNSyN4x7" required) Retrieve users
-
+        
+    li
+      a 
+      h3 List all Groups (Name and ID):
+      form(method='POST' action='/results' name = 'listgroups')
+        label(for='listgroups')
+        button(type='submit' name = "listgroupsbutton" placeholder="00u13we0z1nmnNSyN4x7" required) Retrieve groups
     li
       a 
       h3 Create a user:
+      p Confirm that your email is unique and correct. You will need it to login.
       form(method='POST' action='/results' name = 'createuser')
         label(for='createuserfirstname')
         input(id="createuserfirstname" type="text" name="createuserfirstname" placeholder="first name" required)
@@ -25,6 +32,9 @@ block content
         label(for='email')   
         input(id="email" type="email" name="createuseremail" placeholder="123@gmail.com" required)
         br
+        label(for='mobilePhone')   
+        input(id="mobilePhone" type="tel" name="createusermobilephone" placeholder="1234567890" required)
+        br
         label(for='password')
         input(id="password" type="password" name="createuserpassword" placeholder="password" required)
         br
@@ -33,7 +43,8 @@ block content
         button(type='submit' name = "createuserbutton") Create user    
     li
       a
-      h3 Delete a user:
+      h3 Delete a user by ID:
+      p Execute once to deactivate user. Execute twice to delete user from organization.
       form(method='POST' action='/results' name = 'deleteuser')
         label(for='deleteuser')
         input(id="deleteuser" type="text" name="deleteuser" placeholder="00u13we0z1nmnNSyN4x7" required)
@@ -41,14 +52,40 @@ block content
         button(type="submit" name="deleteuserbutton") Delete (this action cannot be undone)
     li
       a 
-      h3 Upgrade a user:
+      h3 Upgrade a user by ID:
+      p Grant the user access to the Admin group. Copy your Admin group ID here, then your user ID.
       form(method='POST' action='/results' name = 'upgradeuserid')
-        label(for='upgradeeuserid')
+        label(for='upgradeeuserid') User ID
+        br
         input(id="upgradeuserid" type="text" name="upgradeuserid" placeholder="00u13we0z1nmnNSyN4x7" required)
         br
+        label(for='upgradegroupid') Group ID
+        br
+        input(id="upgradegroupid" type="text" name="upgradegroupid" placeholder="00u13we0z1nmnNSyN4x7" required)
+        br
         button(type="submit" name="upgradeuserbutton") Make an admin
-  p Can't remember any of your colleagues' User IDs?
-  form(method='GET' action='/users')
-    button(type='submit') User ID List
+    li
+      a
+      h3 Update your profile
+      p Double check spelling on your email. Locking out of account is possible.
+      form(method='POST' action='/results' name = 'updateuser')
+        label(for='updateuserfirstname')
+        input(id="updateuserfirstname" type="text" name="updateuserfirstname" placeholder="first name" required)
+        br
+        label(for='updateuserlastname')
+        input(id="updateuserlastname" type="text" name="updateuserlastname" placeholder="last name" required)
+        br
+        label(for='updateemail')   
+        input(id="updateemail" type="email" name="updateuseremail" placeholder="123@gmail.com" required)
+        br
+        label(for='updatemobilephone')   
+        input(id="updatemobilephone" type="tel" name="updateusermobilephone" placeholder="1234567890" required)
+        br
+        label(for='updateuserpassword')
+        input(id="updateuserpassword" type="password" name="updateuserpassword" placeholder="password" required)
+        br
+        button(type="reset" name="reset") Reset
+        br
+        button(type='submit' name = "updateuserbutton") Update user 
   form(method='POST' action='/logout')
-    button(type='submit') Logout
+    button(type='submit') logout

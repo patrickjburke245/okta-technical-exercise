@@ -3,7 +3,7 @@ An application with an Okta-hosted login page and admin portal that leverages th
 
 ## 1. Getting Started
 
-To install this application, run the following commands (meant for Windows):
+To install this application, run the following commands you'd like to store the project in (meant for Windows):
 ```
 git clone https://github.com/patrickjburke245/okta-technical-exercise.git
 cd okta-technical-exercise
@@ -22,7 +22,9 @@ Create a new OIDC app by changing from Developer Console to Classic UI. Navigate
 
 Click **Done** to create your app.
 
-Create a `.env` file in your root directory and copy the client ID and secret into it. You can find the value for `<YOUR_ISSUER>` by navigating to **Security** > **API** > **Authorization Servers**.
+Create a file named only `.env` in your root directory and copy the client ID and secret into it. You can find the value for `<YOUR_ISSUER>` by navigating to **Security** > **API** > **Authorization Servers**.
+Values for `OIDC_CLIENT_ID` and `OIDC_CLIENT_SECRET` can be found by navigating to **Applications** > **Node.js Login**.
+**SESSION_SECRET** is a randomized string of characters.
 
 ```
 OIDC_ISSUER=<YOUR_ISSUER>
@@ -30,19 +32,29 @@ OIDC_CLIENT_ID=<YOUR_CLIENT_ID>
 OIDC_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 BASE_URL=http://localhost:3000
 SESSION_SECRET=todo: make-this-more-secure
+OKTA_CLIENT_ORGURL=https://dev-123456.okta.com/
+API_TOKEN=1234
 ```
 
 **NOTE**: Make sure to remove the `<...>` placeholders. Your issuer should look something like: `https://dev-123456.okta.com/oauth2/default`.
 
-So in your .env file, this will end up looking something like:
+So your .env file will end up looking something like:
 
 ```
 OIDC_ISSUER=https://dev-123456.okta.com/oauth2/default
 OIDC_CLIENT_ID=0oa578hjtxP8gt89F3x6
-OIDC_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
+OIDC_CLIENT_SECRET=1234
 BASE_URL=http://localhost:3000
 SESSION_SECRET=todo: make-this-more-secure
 ```
+
+Make sure the relevant users are assigned to the application by going to **Applications** > **Node.js Login** > **Assignments**.
+
+Request an API token from **Security** > **API** > **Tokens**. IMMEDIATELY copy the key value and place in your .env file. You may not be able to access it later.
+
+Make sure your app allows CORS and redirect: **Security** > **API** > **Trusted Origins**. Check boxes for CORS and redirect. URL is http://localhost:3000/. Organization name is Node.js Login.
+
+Make sure to create an admin group and add a user to become a superuser in **Directory** > **Groups**. Grant everyone in this group administrator privileges by going to **Security** > **Administrators** > **Add Administrator Group**. Add the group you created for admins and check "Super Administrator" . Adding anybody to this group will now grant them super administrator privileges.
 
 ### Start the application
 
@@ -67,14 +79,14 @@ Create a custom application in the programming language of your choice and inclu
 + Leverage Okta for these operations
 + Create custom admin pages that use the Okta API for Create, Read, Update, & Delete user functions. Refer to: [https://developer.okta.com/docs/api/resources/users.html]_
 
-The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000` which brings me to the landing page for a mock news website, 'The Daily Byte'. Users with regular permissions are directed to a different part of the site than admins. Admins are directed to a portal that allows them to view the users in their organization, delete users, and upgrade users to admins. The login page is hosted by Okta. The user functions are facilitated by calls to Okta's API platform.
+The application runs locally on my Windows machine. After starting the application and server, I go to `localhost:3000` which brings me to the landing page for a mock news website, 'The Daily Byte'. Users with regular permissions are directed to a different part of the site than admins. Admins are directed to a portal that allows them to view all users and groups in the organization, create users, delete users, grant admin privileges to users, and update their own information. The login page is hosted by Okta. The user functions are facilitated by calls to Okta's API platform.
 
 ## 4. Next Steps
-To fulfill the requirements completely, I would need to implement commands to update and create users, similar to how the other forms are laid out on the admin portal.
+The base requirements were fulfilled. The immediate next step would be adding more functionality with more parameter options for these API calls as well as more options with respect to updating users and groups.
 
-After base requirements are fulfilled, there are security issues to address with the application. Concealing the API token in the local .env file, giving clearer error messages when the results page loads, and sanitizing the user input on the admin portal are the first few that come to mind.
+There are security issues to address with the application. Giving clearer error messages when the results page loads and sanitizing the user input on the admin portal are the first few that come to mind.
 
-This app could also use some better decoration and organization. Implementing a front-end framework like React or Angular could help modularize the content. The Pug templates can also be leveraged better to deliver more dynamic content. 
+This app could also use some better decoration and organization. Implementing a front-end framework like React or Angular could help modularize the content. The Pug templates can also be leveraged better to deliver more dynamic content.
 
 ## 5. Links and Acknowledgments
 * [Node.js + Express Login Example](https://github.com/oktadeveloper/okta-nodejs-login-example#readme)

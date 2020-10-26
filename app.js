@@ -7,12 +7,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser=require("body-parser");
 var router = express.Router();
+var UglifyJS = require("uglify-js");
+const fetch = require('node-fetch');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminsRouter = require('./routes/admins');
 
 require('dotenv').config()
+
+const orgUrl = process.env.OKTA_CLIENT_ORGURL;
 
 var app = express();
 const oidc = new ExpressOIDC({
@@ -43,7 +47,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public')));
 app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
 
@@ -55,9 +59,7 @@ router.post("localhost:3000/results", async function(req, res){
 
   //List all users
   let a = JSON.stringify(req.body);
-  console.log(a);
-  console.log(req.body.createuserfirstname);
-  //console.log(a.contains());
+
   if (a.includes('createuserbutton')) { //Create a user
     await createUserFunc(req.body.createuserfirstname, req.body.createuserfirstname,
       req.body.createuseremail, req.body.createuserpassword);
