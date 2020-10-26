@@ -46,6 +46,8 @@ OIDC_CLIENT_ID=0oa578hjtxP8gt89F3x6
 OIDC_CLIENT_SECRET=1234
 BASE_URL=http://localhost:3000
 SESSION_SECRET=todo: make-this-more-secure
+OKTA_CLIENT_ORGURL=https://dev-123456.okta.com/
+API_TOKEN=1234
 ```
 
 Make sure the relevant users are assigned to the application by going to **Applications** > **Node.js Login** > **Assignments**.
